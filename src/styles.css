@@ -1,0 +1,18 @@
+.app{
+    margin: 0%;
+    padding: 0%;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.ascroll{
+    max-height: 300px;
+    scroll-margin: 100px;
+}
+#anchor-scroll{
+  scroll-margin-top: 900px;
+}
+
+@media only screen and (max-width: 600px) {
+    .ascroll{
+      max-height: 600px;
+    }
+  }
