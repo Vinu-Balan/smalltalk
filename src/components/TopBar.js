@@ -8,7 +8,7 @@ const TopBar = () => {
 
   const connectNext =() =>{
     console.log("next")
-    axios.post('http://localhost:3306/connectNext',{userid: localStorage.getItem('userID'),strangerID: localStorage.getItem('strangerID')}).catch((e)=>{
+    axios.post('https://smalltalk-backend.onrender.com/connectNext',{userid: localStorage.getItem('userID'),strangerID: localStorage.getItem('strangerID')}).catch((e)=>{
       console.log(e);
     })
     localStorage.setItem('connected',false);
@@ -16,7 +16,7 @@ const TopBar = () => {
     // history('/');
   }
   const deleteUser = () =>{
-    axios.post('http://localhost:3306/deletecurUser',{userid: localStorage.getItem('userID'),strangerID: localStorage.getItem('strangerID')}).catch((e)=>{
+    axios.post('https://smalltalk-backend.onrender.com/deletecurUser',{userid: localStorage.getItem('userID'),strangerID: localStorage.getItem('strangerID')}).catch((e)=>{
       console.log(e);
     })
     history('/');

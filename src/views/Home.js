@@ -10,7 +10,7 @@ const Home = () => {
       getOnlineUsers();
     })
     const getOnlineUsers=()=>{
-      axios.get('http://localhost:3306/getOnlineUsers').
+      axios.get('https://smalltalk-backend.onrender.com/getOnlineUsers').
       then((data)=>{
         // console.log(data.data.data.length)
         setc(data.data.data.length);
@@ -21,7 +21,7 @@ const Home = () => {
     const createId = () =>{
         var userId = Math.floor(Math.random() * 10000);
         localStorage.setItem('userID',userId);
-        axios.post('http://localhost:3306/chat',{userid: localStorage.getItem('userID')}).then((res)=>{
+        axios.post('https://smalltalk-backend.onrender.com/chat',{userid: localStorage.getItem('userID')}).then((res)=>{
           // console.log(res);
         }).catch((e)=>{
           console.log(e);

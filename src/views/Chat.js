@@ -11,7 +11,7 @@ const Chat = () => {
   const connectStranger = (userid) =>{
     // console.log('connecting')
     localStorage.setItem('connected',connected);
-    axios.post('http://localhost:3306/connectStranger',{userid: userid}).then((res)=>{
+    axios.post('https://smalltalk-backend.onrender.com/connectStranger',{userid: userid}).then((res)=>{
       console.log(res.data);
       if(res.data){
         localStorage.setItem('strangerID',res.data.userid);
@@ -31,7 +31,7 @@ const Chat = () => {
   const checkConnection=()=>{
     if(!localStorage.getItem('connected')){
       console.log("hiii");
-      axios.post('http://localhost:3306/checkConnection',{userid: localStorage.getItem('userid')}).then((res)=>{
+      axios.post('https://smalltalk-backend.onrender.com/checkConnection',{userid: localStorage.getItem('userid')}).then((res)=>{
       console.log(res);
       if(res){
         // console.log("user available");

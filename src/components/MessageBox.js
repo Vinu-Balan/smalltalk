@@ -14,14 +14,14 @@ const MessageBox = () => {
   const createId = () =>{
     var userId = Math.floor(Math.random() * 10000);
     localStorage.setItem('userID',userId);
-    axios.post('http://localhost:3306/chat',{userid: localStorage.getItem('userID')}).then((res)=>{
+    axios.post('https://smalltalk-backend.onrender.com/chat',{userid: localStorage.getItem('userID')}).then((res)=>{
       // console.log(res);
     }).catch((e)=>{
       console.log(e);
     });
 }
   const deleteUser = () =>{
-    axios.post('http://localhost:3306/deletecurUser',{userid: localStorage.getItem('userID'),strangerID: localStorage.getItem('strangerID')}).catch((e)=>{
+    axios.post('https://smalltalk-backend.onrender.com/deletecurUser',{userid: localStorage.getItem('userID'),strangerID: localStorage.getItem('strangerID')}).catch((e)=>{
       console.log(e);
     })
     // history('/');
@@ -29,7 +29,7 @@ const MessageBox = () => {
     createId();
   }
   const getMessages =() =>{
-    axios.post('http://localhost:3306/getMessage',{sender: localStorage.getItem('userID'),reciever: localStorage.getItem('strangerID')}).
+    axios.post('https://smalltalk-backend.onrender.com/getMessage',{sender: localStorage.getItem('userID'),reciever: localStorage.getItem('strangerID')}).
     then((data) =>{
         var c = false;
       if(messages.length>data.data.length){

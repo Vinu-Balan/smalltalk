@@ -14,7 +14,7 @@ const TypeBox = () => {
   }
   const sendMessage =(e) =>{
     e.preventDefault();
-    axios.post('http://localhost:3306/sendMessage',{
+    axios.post('https://smalltalk-backend.onrender.com/sendMessage',{
       sender: localStorage.getItem('userID'),
       reciever: localStorage.getItem('strangerID'),
       message: msg
@@ -23,7 +23,7 @@ const TypeBox = () => {
   }
   const sendEmoji=(emoji)=>{
     // console.log(emoji);
-    axios.post('http://localhost:3306/sendMessage',{
+    axios.post('https://smalltalk-backend.onrender.com/sendMessage',{
       sender: localStorage.getItem('userID'),
       reciever: localStorage.getItem('strangerID'),
       message: emoji
