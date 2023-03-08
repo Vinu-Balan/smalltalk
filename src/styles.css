@@ -10,9 +10,21 @@
 #anchor-scroll{
   scroll-margin-top: 900px;
 }
+.bg-home-img{
+  width: 10%;
+}
+.home-container{
+  min-height:400px;
+}
 
 @media only screen and (max-width: 600px) {
     .ascroll{
       max-height: 500px;
+    }
+    .bg-home-img{
+      width: 100%;
+    }
+    .home-container{
+      min-height:850px;
     }
   }

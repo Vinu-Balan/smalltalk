@@ -23,9 +23,9 @@ function App() {
     <div className='app'>
     <BrowserRouter>
       <Routes>
+      <Route path='/' element={<Home/>} />
         <Route path='/chat' element={<Chat/>} />
-        <Route path='/' element={<Home/>} />
-        <Route path="*" element={<Home/>} />
+        <Route path='/*' element={<Home/>} />
       </Routes>
     </BrowserRouter>
     </div>

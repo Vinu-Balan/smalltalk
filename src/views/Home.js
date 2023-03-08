@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import '../styles.css';
 
 const Home = () => {
     const history = useNavigate();
@@ -29,7 +30,7 @@ const Home = () => {
         history('/chat');
     }
   return (
-    <div style={{minHeight:'500px',backgroundColor:'ButtonShadow'}}>
+    <div className='home-container' style={{backgroundColor:'ButtonShadow'}}>
     <div className='flex space-around w-full bg-primary ' style={{display:"flex",flexDirection:'row',justifyContent:"space-between"}}>
     <div className='text-light p-3 h3 bg-none'>Small Talk</div>
     </div>
@@ -37,8 +38,13 @@ const Home = () => {
     <span className='text-dark h1 justify-content-center m-3'>Get Connected with People All over the Globe</span>
     <button onClick={createId} className='text-light bg-warning rounded col-10 col-md-3 p-2 m-3 text-center' style={{border:'none',textDecoration:'none'}}>Start Chatting with Strangers</button>
     </div>
-    <div className='d-flex col align-items-center justify-content-center my-5 bg-light rounded'>
+    <div className='d-flex align-items-center justify-content-center my-5 rounded' >
       <h1>Users online: <span style={{fontSize:'40px'}}>{c}</span></h1>
+    </div>
+    <hr></hr>
+    <div className='d-flex col align-items-center justify-content-center my-3 px-4 pt-4 bg-light rounded' style={{flexDirection:'column'}}>
+      <h1>Make you move and get connected!</h1>
+      <img src='https://media.tenor.com/aKFaZBrZFYcAAAAC/excited-spin.gif' className='bg-home-img' />
     </div>
     </div>
   )
