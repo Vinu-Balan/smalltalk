@@ -33,7 +33,7 @@ const Home = () => {
     <div className='flex space-around w-full bg-primary ' style={{display:"flex",flexDirection:'row',justifyContent:"space-between"}}>
     <div className='text-light p-3 h3 bg-none'>Small Talk</div>
     </div>
-    <div className='d-flex col align-items-center justify-content-center my-3' style={{display:'flex',flexDirection:"column",margin:'30px',backgroundColor: '#9efff2',backgroundImage: "url('./assets/background-1.gif')",borderRadius: '20px'}}>
+    <div className='d-flex col align-items-center justify-content-center my-3' style={{display:'flex',flexDirection:"column",margin:'30px',backgroundColor: '#9efff2',borderRadius: '20px'}}>
     <span className='text-dark h1 justify-content-center m-3'>Get Connected with People All over the Globe</span>
     <button onClick={createId} className='text-light bg-warning rounded col-10 col-md-3 p-2 m-3 text-center' style={{border:'none',textDecoration:'none'}}>Start Chatting with Strangers</button>
     </div>
