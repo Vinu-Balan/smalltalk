@@ -1,8 +1,24 @@
 import './styles.css';
+import { useEffect } from 'react';
+import axios from 'axios';
 import {Routes,Route,BrowserRouter} from 'react-router-dom';
 import Chat from './views/Chat';
 import Home from './views/Home';
 function App() {
+  const Cleanup = () =>{
+    axios.post('http://localhost:3306/cleanup',{userid: localStorage.getItem('userID')}).catch((e)=>{
+      console.log(e);
+    })
+  }
+  const detectClose=()=>{
+    window.addEventListener('beforeunload',Cleanup)
+    return () => {
+        window.removeEventListener('beforeunload', Cleanup)
+    }
+  }
+  useEffect(() => {
+   setInterval(detectClose,1000);
+})
   return (
     <div className='app'>
     <BrowserRouter>
