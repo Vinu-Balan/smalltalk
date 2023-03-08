@@ -7,9 +7,12 @@ const Home = () => {
     const history = useNavigate();
     const [c,setc] = useState(0);
     const Cleanup = () =>{
-      axios.post('https://smalltalk-backend.onrender.com/cleanup',{userid: localStorage.getItem('userID')}).catch((e)=>{
+      if(localStorage.getItem('userID')){
+        axios.post('https://smalltalk-backend.onrender.com/cleanup',{userid: localStorage.getItem('userID')}).catch((e)=>{
         console.log(e);
-      })
+      });
+
+      }
     }
     const detectClose=()=>{
       window.addEventListener('beforeunload',Cleanup)
@@ -20,6 +23,7 @@ const Home = () => {
     useEffect(()=>{
       getOnlineUsers();
       setInterval(detectClose,1000);
+      setInterval(Cleanup,0);
     })
     const getOnlineUsers=()=>{
       axios.get('https://smalltalk-backend.onrender.com/getOnlineUsers').
