@@ -35,7 +35,7 @@ const MessageBox = () => {
       if(messages.length>data.data.length){
         deleteUser();
       }
-      if(messages.length<data.data.length){
+      if(messages.length<=data.data.length){
         c = true; 
       }
     if(data.data){
