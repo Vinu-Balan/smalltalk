@@ -6,7 +6,7 @@ import Chat from './views/Chat';
 import Home from './views/Home';
 function App() {
   const Cleanup = () =>{
-    axios.post('http://localhost:3306/cleanup',{userid: localStorage.getItem('userID')}).catch((e)=>{
+    axios.post('https://smalltalk-backend.onrender.com/cleanup',{userid: localStorage.getItem('userID')}).catch((e)=>{
       console.log(e);
     })
   }

@@ -6,9 +6,20 @@ import '../styles.css';
 const Home = () => {
     const history = useNavigate();
     const [c,setc] = useState(0);
-
+    const Cleanup = () =>{
+      axios.post('https://smalltalk-backend.onrender.com/cleanup',{userid: localStorage.getItem('userID')}).catch((e)=>{
+        console.log(e);
+      })
+    }
+    const detectClose=()=>{
+      window.addEventListener('beforeunload',Cleanup)
+      return () => {
+          window.removeEventListener('beforeunload', Cleanup)
+      }
+    }
     useEffect(()=>{
       getOnlineUsers();
+      setInterval(detectClose,1000);
     })
     const getOnlineUsers=()=>{
       axios.get('https://smalltalk-backend.onrender.com/getOnlineUsers').
