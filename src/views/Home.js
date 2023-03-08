@@ -22,8 +22,9 @@ const Home = () => {
     }
     useEffect(()=>{
       getOnlineUsers();
+      Cleanup();
       setInterval(detectClose,0);
-      // Cleanup();
+      
     })
     const getOnlineUsers=()=>{
       axios.get('https://smalltalk-backend.onrender.com/getOnlineUsers').
