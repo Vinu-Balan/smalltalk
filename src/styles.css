@@ -13,6 +13,6 @@
 
 @media only screen and (max-width: 600px) {
     .ascroll{
-      max-height: 600px;
+      max-height: 500px;
     }
   }

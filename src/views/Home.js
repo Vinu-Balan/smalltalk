@@ -37,7 +37,7 @@ const Home = () => {
     <span className='text-dark h1 justify-content-center m-3'>Get Connected with People All over the Globe</span>
     <button onClick={createId} className='text-light bg-warning rounded col-10 col-md-3 p-2 m-3 text-center' style={{border:'none',textDecoration:'none'}}>Start Chatting with Strangers</button>
     </div>
-    <div className='d-flex col align-items-center justify-content-center my-5'>
+    <div className='d-flex col align-items-center justify-content-center my-5 bg-light rounded'>
       <h1>Users online: <span style={{fontSize:'40px'}}>{c}</span></h1>
     </div>
     </div>
