@@ -21,7 +21,7 @@ const Home = () => {
     const createId = () =>{
         var userId = Math.floor(Math.random() * 10000);
         localStorage.setItem('userID',userId);
-        axios.post('https://smalltalk-backend.onrender.com/chat',{userid: localStorage.getItem('userID')}).then((res)=>{
+        axios.post('/chat',{userid: localStorage.getItem('userID')}).then((res)=>{
           // console.log(res);
         }).catch((e)=>{
           console.log(e);
