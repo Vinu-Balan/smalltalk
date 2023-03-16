@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import {useNavigate} from 'react-router-dom';
+import {useNavigate,Link} from 'react-router-dom';
 import axios from 'axios';
 import '../styles.css';
 
@@ -27,23 +27,13 @@ const Home = () => {
       setTimeout(Cleanup,5000);
     })
     const getOnlineUsers=()=>{
-      axios.get('https://smalltalk-backend.onrender.com/getOnlineUsers').
+      axios.get('https://smalltalk-backend.onrender.com/getComUsers').
       then((data)=>{
         // console.log(data.data.data.length)
         setc(data.data.data.length);
       }).catch((e)=>{
         console.log(e);
       })
-    }
-    const createId = () =>{
-        var userId = Math.floor(Math.random() * 10000);
-        localStorage.setItem('userID',userId);
-        axios.post('https://smalltalk-backend.onrender.com/chat',{userid: localStorage.getItem('userID')}).then((res)=>{
-          // console.log(res);
-        }).catch((e)=>{
-          console.log(e);
-        });
-        history('/chat');
     }
   return (
     <div className='home-container' style={{backgroundColor:'ButtonShadow'}}>
@@ -52,14 +42,25 @@ const Home = () => {
     </div>
     <div className='d-flex col align-items-center justify-content-center my-3' style={{display:'flex',flexDirection:"column",margin:'30px',backgroundColor: '#9efff2',borderRadius: '20px'}}>
     <span className='text-dark h1 justify-content-center m-3'>Get Connected with People All over the Globe</span>
-    <button onClick={createId} className='text-light bg-warning rounded col-10 col-md-3 p-2 m-3 text-center' style={{border:'none',textDecoration:'none'}}>Start Chatting with Strangers</button>
+    <center><h3>Build your own community</h3></center>
+    <Link to='/build' className='text-light bg-warning rounded col-10 col-md-3 p-2 m-3 text-center'>
+    <button onClick={()=>console.log("build")} className='text-light bg-warning rounded' style={{border:'none',textDecoration:'none'}}>Start Building</button>
+    </Link>
+    <center><h1 className='text-danger'>OR</h1></center>
+    <center><h3>Join in a community</h3></center>
+    <div className='text-light bg-warning rounded col-10 col-md-3 p-2 m-3 text-center'>
+    <button onClick={()=>{
+      history('/join')
+      window.location.reload();
+    }} className='text-light bg-warning rounded' style={{border:'none',textDecoration:'none'}}>Join Community</button>
+    </div>
     </div>
     <div className='d-flex align-items-center justify-content-center my-5 rounded' >
-      <h1>Users online: <span style={{fontSize:'40px'}}>{c}</span></h1>
+      <h2>Communities Available: <span style={{fontSize:'40px'}}>{c}</span></h2>
     </div>
     <hr></hr>
     <div className='d-flex col align-items-center justify-content-center my-3 px-4 pt-4 bg-light rounded' style={{flexDirection:'column'}}>
-      <h1>Make you move and get connected!</h1>
+      <h1>Make your move and get connected!</h1>
       <img src='https://media.tenor.com/aKFaZBrZFYcAAAAC/excited-spin.gif' className='bg-home-img' />
     </div>
     </div>

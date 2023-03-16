@@ -21,11 +21,20 @@ const TypeBox = () => {
     })
     setMsg('');
   }
+  const sendComMessage =(e) =>{
+    e.preventDefault();
+    axios.post('https://smalltalk-backend.onrender.com/sendComMessage',{
+      sender: localStorage.getItem('userID'),
+      community: localStorage.getItem('com'),
+      message: msg
+    })
+    setMsg('');
+  }
   const sendEmoji=(emoji)=>{
     // console.log(emoji);
-    axios.post('https://smalltalk-backend.onrender.com/sendMessage',{
+    axios.post('https://smalltalk-backend.onrender.com/sendComMessage',{
       sender: localStorage.getItem('userID'),
-      reciever: localStorage.getItem('strangerID'),
+      community: localStorage.getItem('com'),
       message: emoji
     })
     setEmojstate(false);
@@ -62,7 +71,7 @@ const TypeBox = () => {
     </div>
     </div>
     
-    <button className='col-3 col-md-1 rounded bg-primary text-light' style={{border:"none"}} type="submit" onClick={sendMessage}>Send</button>
+    <button className='col-3 col-md-1 rounded bg-primary text-light' style={{border:"none"}} type="submit" onClick={sendComMessage}>Send</button>
     </form>
   )
 }

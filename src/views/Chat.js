@@ -44,7 +44,7 @@ const Chat = () => {
   useEffect(() => {
     // localStorage.setItem('connected',false)
    setInterval(connectStranger(localStorage.getItem('userID')),0);
-  //  setInterval(checkConnection,0);
+   setInterval(checkConnection,1000);
   }, []);
   return (
     <section>
