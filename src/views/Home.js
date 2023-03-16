@@ -51,7 +51,7 @@ const Home = () => {
     <div className='text-light bg-warning rounded col-10 col-md-3 p-2 m-3 text-center'>
     <button onClick={()=>{
       history('/join')
-      window.location.reload();
+      // window.location.reload();
     }} className='text-light bg-warning rounded' style={{border:'none',textDecoration:'none'}}>Join Community</button>
     </div>
     </div>
